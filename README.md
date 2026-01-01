@@ -67,12 +67,14 @@ Sets up hyperparameters:
 Executes distributed training on SageMaker with validation on test data.
 
 ### 9. Install XGBoost Locally
-Installs XGBoost 1.7.6 for local validation and inspection.
+Installs the `xgboost` Python package (version 1.7.6) needed for local model training and evaluation.
 
-### 10. Local XGBoost Training & Evaluation
-- Trains model locally with identical hyperparameters
-- Evaluates using accuracy and classification metrics
-- Validates predictions against test set
+### 10. Evaluate Model Performance
+Once training is complete, downloads the trained model and makes predictions on test data:
+- **Data loading**: Reads train/test CSV files locally
+- **Model training**: Trains XGBoost model locally using the same hyperparameters as the SageMaker model
+- **Evaluation**: Computes accuracy and generates a detailed classification report (precision, recall, F1-score)
+- **Purpose**: Validates model performance on test set before production deployment
 
 ### 11. Register Model in SageMaker
 Registers the trained model in SageMaker Model Registry for version control.
